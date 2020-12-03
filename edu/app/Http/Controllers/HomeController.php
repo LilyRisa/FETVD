@@ -33,7 +33,7 @@ class HomeController extends Controller
                 if($student[$key]->time_range != null){
                     $student[$key]->time_range->checkin = $student[$key]->time_range->checkin != null ? Carbon::createFromTimestamp(intval($student[$key]->time_range->checkin))->timezone('asia/ho_chi_minh')->format('H:i:s d-m-yy') : null;
                     $student[$key]->time_range->checkout = $student[$key]->time_range->checkout != null ? Carbon::createFromTimestamp(intval($student[$key]->time_range->checkout))->timezone('asia/ho_chi_minh')->format('H:i:s d-m-yy') : null;
-                    $student[$key]->avatar ='data:image/jpg;base64,'.(json_decode((new Requestapi('/api/v1/get/avatar?classroom='.$student[$key]->classroom.'&name='.$student[$key]->name,['Authorization' => \Session::get('ACCESS_TOKEN')]))->methodGet()))->avatar_base64;
+                    $student[$key]->avatar_base64 ='data:image/jpg;base64,'.$student[$key]->avatar_base64;
                 }
                 
             }
@@ -71,7 +71,7 @@ class HomeController extends Controller
                     $student[$key]->time_range->checkin = $student[$key]->time_range->checkin != null ? Carbon::createFromTimestamp(intval($student[$key]->time_range->checkin))->timezone('asia/ho_chi_minh')->format('H:i:s d-m-yy') : null;
                     $student[$key]->time_range->checkout = $student[$key]->time_range->checkout != null ? Carbon::createFromTimestamp(intval($student[$key]->time_range->checkout))->timezone('asia/ho_chi_minh')->format('H:i:s d-m-yy') : null;
                 }
-                $student[$key]->avatar ='data:image/jpg;base64,'.(json_decode((new Requestapi('/api/v1/get/avatar?classroom='.$student[$key]->classroom.'&name='.$student[$key]->name,['Authorization' => \Session::get('ACCESS_TOKEN')]))->methodGet()))->avatar_base64;
+                $student[$key]->avatar_base64 ='data:image/jpg;base64,'.$student[$key]->avatar_base64;
             }
         }
         return \response()->json($data);

@@ -309,7 +309,7 @@
                 load.clear().draw();
                 result.forEach(item => {
                     if(item.time_range != null){
-                        load.row.add([`<img src="${item.avatar}" width="53" class="img-responsive avatar" >`,
+                        load.row.add([`<img src="${item.avatar_base64}" width="53" class="img-responsive avatar" >`,
                             item.name,
                             item.classroom,
                             item.subject_id,
@@ -317,7 +317,7 @@
 
                         ]).draw();
                     }else{
-                        load.row.add([`<img src="${item.avatar}" width="53" class="img-responsive avatar" >`,
+                        load.row.add([`<img src="${item.avatar_base64}" width="53" class="img-responsive avatar" >`,
                             item.name,
                             item.classroom,
                             item.subject_id,
@@ -381,14 +381,14 @@
 
             result.students.forEach(item => {
                 if(item.time_range != null){
-                    load.row.add([`<img src="${item.avatar}" width="53" class="img-responsive avatar" >`,
+                    load.row.add([`<img src="${item.avatar_base64}" width="53" class="img-responsive avatar" >`,
                         item.name,
                         item.classroom,
                         item.subject_id,
                         item.time_range.checkin,
                     ]).draw();
                 }else{
-                    load.row.add([`<img src="${item.avatar}" width="53" class="img-responsive avatar" >`,
+                    load.row.add([`<img src="${item.avatar_base64}" width="53" class="img-responsive avatar" >`,
                         item.name,
                         item.classroom,
                         item.subject_id,
